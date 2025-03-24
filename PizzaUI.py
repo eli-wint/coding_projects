@@ -99,9 +99,9 @@ def UpdateValues():
     if (entry.get() != ""):
         FinalPrice = FinalPrice
         Tip = float(entry.get())
-        AddTipLabel.config(text=f"Add a tip? ${float(entry.get()):04.2f}")
+        AddTipLabel.config(text=f"Add a tip? ${float(entry.get()):04.2f}", font=("HELVETICA", 11))
     else:
-        AddTipLabel.config(text="Add a tip? $0.00")
+        AddTipLabel.config(text="Add a tip? $0.00", font=("HELVETICA", 11))
     
     PriceLabel.config(text=f"Total Price: ${FinalPrice:04.2f}")
     if ((OliveVar.get() == 0) & (MushroomVar.get() == 0) & (BellPepperVar.get() == 0)):
@@ -114,11 +114,11 @@ def UpdateValues():
     OrderSummaryLabel.config(text=" ")
     
     if ((PizzaSizeVar.get() == "") & (Tip == 0)):
-        OrderSummaryLabel.config(text=f"Order Summary: Just some {Toppings}s")
+        OrderSummaryLabel.config(text=f"Order Summary: Just some {Toppings}s", font=("HELVETICA", 11))
     elif ((PizzaSizeVar.get() == "") & (Tip != 0)):
-        OrderSummaryLabel.config(text="Order Summary: Nothing")
+        OrderSummaryLabel.config(text="Order Summary: Nothing", font=("HELVETICA", 11))
     else:
-        OrderSummaryLabel.config(text=f"Order Summary: {PizzaSizeVar.get()} Pizza with {Toppings}")
+        OrderSummaryLabel.config(text=f"Order Summary: {PizzaSizeVar.get()} Pizza with {Toppings}", font=("HELVETICA", 11))
     
     print(f"FinalPrice: {FinalPrice}")
 
@@ -128,7 +128,7 @@ def SelectedSize(price): # Checks which size is selected
     global PizzaSize, PizzaSizeVar, GlobalPrice
     PizzaSize = price
     print(f"PizzaPrice: {PizzaSize}")
-    SelectedSizeLabel.config(text=f"Size Selected: {PizzaSizeVar.get()} (${PizzaSize:04.2f})")
+    SelectedSizeLabel.config(text=f"Size Selected: {PizzaSizeVar.get()} (${PizzaSize:04.2f})", font=("HELVETICA", 11))
     
     UpdateValues()
 
@@ -186,19 +186,19 @@ def ProceedToCheckout():
     
    
     if ((PizzaSizeVar.get() == "") & (Toppings == "No Toppings") & ((Tip > 0) & (Tip < 50))):
-        OrderSummaryLabel.config(text="Order Summary: Only a tip..?")
+        OrderSummaryLabel.config(text="Order Summary: Only a tip..?", font=("HELVETICA", 11))
     elif ((PizzaSizeVar.get() == "") & (Toppings == "No Toppings") & (Tip >= 50)):
-        OrderSummaryLabel.config(text="Order Summary: Just a big tip??? Thanks")
+        OrderSummaryLabel.config(text="Order Summary: Just a big tip??? Thanks", font=("HELVETICA", 11))
     elif ((PizzaSizeVar.get() == "") & ((Toppings == " ") or (Toppings == "No Toppings")) & (entry.get() == "")):
-        OrderSummaryLabel.config(text="Order Summary: Was nothing appealing?")
+        OrderSummaryLabel.config(text="Order Summary: Was nothing appealing?", font=("HELVETICA", 11))
     elif ((PizzaSizeVar.get() == "") & (Toppings != "")):
-        OrderSummaryLabel.config(text=f"Order Summary: You only wanted {Toppings}s?") 
+        OrderSummaryLabel.config(text=f"Order Summary: You only wanted {Toppings}s?", font=("HELVETICA", 11)) 
     else:
-        OrderSummaryLabel.config(text=f"Order Summary: {PizzaSizeVar.get()} Pizza with {Toppings}")
+        OrderSummaryLabel.config(text=f"Order Summary: {PizzaSizeVar.get()} Pizza with {Toppings}", font=("HELVETICA", 11))
     
     # Final Labels
-    FinalOrderPrice = ttk.Label(root, text=f"Subtotal: {FinalPrice: 04.2f}")
-    OrderWithTax = ttk.Label(root, text=f"Total: ${withTax:04.2f} (Tax: ${tax: 04.2f})")
+    FinalOrderPrice = ttk.Label(root, text=f"Subtotal: ${FinalPrice: 04.2f}", font=("HELVETICA", 12))
+    OrderWithTax = ttk.Label(root, text=f"Total: ${withTax:04.2f} (Tax: ${tax: 04.2f})", font=("HELVETICA", 12))
     
     OrderSummaryLabel.grid(row=1, column=0, sticky="")
     Line.grid(row=2, column=0)
