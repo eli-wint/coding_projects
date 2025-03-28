@@ -1,3 +1,3 @@
-# pizzaCode
-
-# made this into a github file as well as imported it into VSC
+# current projects:
+# - Pizza Ordering system (COMPLETE)
+# - Calculator (W.I.P)
