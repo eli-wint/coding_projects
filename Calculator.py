@@ -54,13 +54,10 @@ def CalculateEntry():
         currentValue = (str(pastResult) + numericalEntry.get())
     else:
         currentValue = numericalEntry.get()
-
+    
     numericalEntry.delete(0, tk.END)
-
     result = eval(currentValue)
-
     displayAnswer.config(text = f"{result}")
-
     pastResult = result
 
 def InsertButtonInput(selectedButton):
